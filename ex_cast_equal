@@ -1,0 +1,26 @@
+#
+#	To check equal & cast function operation
+#		also demonstrate diff between 'sess.run' & 'eval()'
+#	date : 2018.02.25	by dh
+
+import tensorflow as tf
+
+aa = ([3.0, 4.0])
+bb = ([3.0, 4.0])
+
+cc1 = tf.equal(aa,bb)
+cc2 = tf.cast(cc1, dtype=tf.float32)
+cc3 = tf.equal(aa,bb).eval()
+cc4 = tf.cast(cc1, dtype=tf.float32).eval()
+
+# Launch the Graph in a Session
+sess = tf.Session()
+
+dd1 = sess.run(cc1)
+dd2 = sess.run(cc2)
+
+print(" dd1 : \n", dd1)
+print(" dd2 : \n", dd2)
+print('*' * 9)
+print(" cc3 : \n", cc3)
+print(" cc4 : \n", cc4)
